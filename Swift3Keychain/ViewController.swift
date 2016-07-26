@@ -13,6 +13,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let keychain = KeychainManager()
+       // print(keychain.hasSavedDetails)
+        
+        keychain.set(login: "test")
+        keychain.set(password: "again")
+        
+        print(keychain.check(login: "oi", and: "ui"))
+        print(keychain.check(login: "test"))
+        print(keychain.check(password: "again"))
+        keychain.add(item: "try", withKey: "this")
+        keychain.add(item: "again", withKey: "other")
+
+        keychain.save()
+        
+        
+     //   print(keychain.hasSavedDetails)
+
+        
     }
 
     override func didReceiveMemoryWarning() {
